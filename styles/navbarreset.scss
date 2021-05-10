@@ -1,0 +1,125 @@
+@import "./colors.module.scss";
+// NAV
+.mobile_nav {
+  display: none;
+}
+
+.nav-links {
+  list-style: none;
+  // display: none;
+  width: 100%;
+  position: fixed;
+  top: 88px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: $background;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.15);
+  max-height: 0;
+  transition: 0.5s;
+  overflow: hidden;
+
+  &.active-links {
+    padding-top: 20px;
+    max-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s;
+  }
+
+  .listItem {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+
+    div {
+      color: $main;
+    }
+
+    .imgWrapper {
+      width: 40px;
+      margin-right: 12px;
+      position: relative;
+
+      .notification_mobile {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: $main;
+        top: -7px;
+        left: -1px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 11px;
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+.mobileCart {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobileCart {
+    display: block;
+    position: absolute;
+    right: 80px;
+    cursor: pointer;
+
+    .mobileCartSize {
+      position: absolute;
+      top: -8px;
+      left: -15px;
+      background-color: $main;
+      width: 20px;
+      border-radius: 50%;
+      text-align: center;
+      color: #fff;
+      font-size: 13px;
+    }
+  }
+
+  .mobile_nav {
+    display: block !important;
+    position: absolute !important;
+    height: 24px;
+    width: 40px;
+    right: 25px;
+    top: 38px;
+    cursor: pointer;
+    outline: none !important;
+
+    .line {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 38px;
+      height: 3px;
+      background: #fff;
+      transition: 0.5s;
+      z-index: 2;
+
+      &.active-line {
+        top: 5px !important;
+        transform: rotate(135deg);
+      }
+
+      &.active-line:last-child {
+        top: 5px !important;
+        transform: rotate(-135deg);
+      }
+    }
+
+    .line:nth-child(2) {
+      top: 15px;
+    }
+  }
+}
