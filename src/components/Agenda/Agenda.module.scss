@@ -1,0 +1,28 @@
+@import "styles/colors.module.scss";
+
+.Agenda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  padding-top: 100px;
+  .heading {
+    font-size: 32px;
+    margin: 0 auto;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .schedule {
+    h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      span {
+        background: $main;
+        color: $background;
+        padding: 2px 4px;
+      }
+    }
+  }
+}

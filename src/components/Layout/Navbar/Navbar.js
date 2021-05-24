@@ -10,35 +10,48 @@ const Navbar = () => {
     setNavOpened((prevState) => !prevState);
   };
 
+  const scrollToElem = (id) => {
+    const elem = document.getElementById(id);
+    elem.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <>
       <nav className={style.navigation}>
-        <div className={style.logoContainer}>
+        <div
+          className={style.logoContainer}
+          onClick={() => scrollToElem("HomeSlider")}
+        >
           <Logo onClick={toogleNav} />
         </div>
         <ul>
           <li>
-            <Link href="/">
+            <div onClick={() => scrollToElem("Concept")}>
               <a>Gde kada</a>
-            </Link>
+            </div>
           </li>
           <li>
-            <Link href="#Concept">
+            <div onClick={() => scrollToElem("Concept")}>
               <a>Koncept</a>
-            </Link>
+            </div>
           </li>
           <li>
-            <Link href="/">
+            <div onClick={() => scrollToElem("Award")}>
               <a>Nagrada</a>
-            </Link>
+            </div>
           </li>
           <li>
-            <Link href="/">
+            <div onClick={() => scrollToElem("Agenda")}>
               <a>Agenda</a>
-            </Link>
+            </div>
           </li>
           <li>
             <Link href="/">
+              <a>Komisija</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/prijava">
               <a>Prijava</a>
             </Link>
           </li>

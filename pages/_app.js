@@ -1,5 +1,6 @@
 import "styles/globals.scss";
 import "styles/navbarreset.scss";
+import { useRouter } from "next/router";
 
 // swiper
 import "swiper/swiper.scss";
@@ -12,11 +13,15 @@ import "rc-slider/assets/index.css";
 import Navbar from "components/Layout/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      {router.pathname !== "/prijava" && (
+        <header>
+          <Navbar />
+        </header>
+      )}
       <main>
         <Component {...pageProps} />
       </main>

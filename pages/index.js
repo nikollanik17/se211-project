@@ -1,6 +1,10 @@
 import Head from "next/head";
 import HomeSlider from "components/HomeSlider/HomeSlider";
 import Concept from "components/Concept/Concept";
+import Award from "components/Award/Award";
+import Agenda from "components/Agenda/Agenda";
+import Commission from "components/Commission/Commission";
+import Footer from "components/Layout/Footer/Footer";
 
 const Home = () => {
   return (
@@ -15,7 +19,10 @@ const Home = () => {
       </Head>
       <HomeSlider />
       <Concept />
-      <div style={{ height: 1000 }}></div>
+      <Award />
+      <Agenda />
+      <Commission />
+      <Footer />
     </div>
   );
 };
