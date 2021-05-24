@@ -46,9 +46,9 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <Link href="/">
+            <div onClick={() => scrollToElem("Commission")}>
               <a>Komisija</a>
-            </Link>
+            </div>
           </li>
           <li>
             <Link href="/prijava">
