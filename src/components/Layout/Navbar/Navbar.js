@@ -51,9 +51,15 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <Link href="/prijava">
-              <a>Prijava</a>
-            </Link>
+            {localStorage.getItem("jwtToken") ? (
+              <Link href="/adminpanel">
+                <a>Admin panel</a>
+              </Link>
+            ) : (
+              <Link href="/prijava">
+                <a>Prijava</a>
+              </Link>
+            )}
           </li>
         </ul>
 

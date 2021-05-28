@@ -66,11 +66,15 @@ span {
 .goBack {
   padding-left: 60px;
   padding-top: 40px;
+  &.success {
+    padding-left: 0;
+  }
   a {
     background: $main;
     padding: 12px 40px;
     color: $background;
     border-radius: 4px;
+    font-weight: 500;
   }
 }
 .prijava {
@@ -78,6 +82,12 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .check-svg {
+    width: 150px;
+    height: 150px;
+    color: rgb(0, 201, 0);
+  }
 
   h3 {
     margin: 10px 0;
@@ -103,17 +113,218 @@ span {
         color: #fff;
       }
     }
-    button {
-      margin-top: 20px;
-      width: 200px;
-      background: $main;
-      border: none;
-      height: 38px;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      // color: #fff;
+  }
+}
+
+.form-btn {
+  margin-top: 20px;
+  width: 200px;
+  background: $main;
+  border: none;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  // color: #fff;
+}
+
+.countdown-heading {
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $background;
+}
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  color: #111;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 30px;
+  margin: 10px;
+  padding-top: 10px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.countdown-item span {
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.countdown-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+
+// LOADER
+.LoadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+
+  #loader {
+    position: absolute;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+  }
+
+  #box {
+    width: 50px;
+    height: 50px;
+    background: $main;
+    animation: animate 0.5s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+  }
+
+  #shadow {
+    width: 50px;
+    height: 5px;
+    background: #000;
+    opacity: 0.1;
+    position: absolute;
+    top: 59px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow 0.5s linear infinite;
+  }
+
+  @keyframes loader {
+    0% {
+      left: -100px;
+    }
+    100% {
+      left: 110%;
     }
   }
+
+  @keyframes animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+    50% {
+      transform: translateY(18px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 40px;
+    }
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @keyframes shadow {
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+}
+
+.adminPanel {
+  padding: 80px;
+  height: 100vh;
+}
+
+.MuiIconButton-label {
+  color: #000 !important;
+}
+
+h6 {
+  color: #000 !important;
+  padding-right: 50px;
+}
+
+.MuiTypography-caption {
+  color: #000 !important;
+}
+
+.change-expiration {
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+  margin-top: 15px;
+  padding: 10px 30px;
+  width: fit-content;
+  background: #fff;
+  text-align: center;
+}
+.date-exp {
+  margin: 0 12px;
+}
+.MuiPaper-root {
+  padding: 12px 25px;
+  h2 {
+    color: #000;
+    margin-bottom: 10px;
+  }
+  .MuiDialogActions-root {
+    margin-top: 25px;
+  }
+}
+
+.goBack-admin {
+  margin-bottom: 20px;
+  a {
+    background: $main;
+    padding: 12px 40px;
+    color: $background;
+    border-radius: 4px;
+    font-weight: 500;
+    width: 120px;
+    text-align: center;
+  }
+}
+
+.logout {
+  background: rgb(223, 50, 50);
+  padding: 12px 40px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

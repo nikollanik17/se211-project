@@ -5,8 +5,19 @@ import Award from "components/Award/Award";
 import Agenda from "components/Agenda/Agenda";
 import Commission from "components/Commission/Commission";
 import Footer from "components/Layout/Footer/Footer";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getRegistrationTime } from "../src/store/actions/registration";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const { expiration } = useSelector((state) => state.registration);
+
+  useEffect(() => {
+    dispatch(getRegistrationTime());
+  }, []);
+
   return (
     <div className="page">
       <Head>
@@ -17,10 +28,10 @@ const Home = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeSlider />
-      <Concept />
+      <HomeSlider expiration={expiration} />
+      <Concept expiration={expiration} />
       <Award />
-      <Agenda />
+      <Agenda expiration={expiration} />
       <Commission />
       <Footer />
     </div>

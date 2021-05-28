@@ -3,11 +3,12 @@ import styles from "./HomeSlider.module.scss";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import Timer from "../Timer/Timer";
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-const HomeSlider = () => {
+const HomeSlider = ({ expiration }) => {
   const [controlledSwiper, setControlledSwiper] = useState(null);
 
   return (
@@ -28,19 +29,19 @@ const HomeSlider = () => {
       >
         <SwiperSlide>
           <img
-            src="assets/slider4.jpg"
+            src="assets/slider4-min.jpg"
             style={{ width: "100%", height: "100vh" }}
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="assets/slider1.jpg"
+            src="assets/slider1-min.jpg"
             style={{ width: "100%", height: "100vh" }}
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="assets/slider2.jpg"
+            src="assets/slider2-min.jpg"
             style={{ width: "100%", height: "100vh" }}
           />
         </SwiperSlide>
@@ -51,6 +52,7 @@ const HomeSlider = () => {
         />
 			</SwiperSlide> */}
       </Swiper>
+      <Timer timeTillDate={expiration} timeFormat="MM DD YYYY, h:mm a" />
     </div>
   );
 };

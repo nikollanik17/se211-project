@@ -1,14 +1,24 @@
 import styles from "./Concept.module.scss";
 import conceptData from "../../../conceptData.json";
 
-const Concept = () => {
+const Concept = ({ expiration }) => {
+  let expire = new Date(expiration);
+
+  let firstDay = new Date(expiration);
+  firstDay.setDate(expire.getDate() + 1);
+  let lastDay = new Date(expiration);
+  lastDay.setDate(expire.getDate() + 3);
+
   return (
     <div id="Concept" className={styles.Concept}>
       <h1 className={styles.heading}>Koncept</h1>
       <div className={styles.conceptFlex}>
         <div className={styles.col}>
           <h2>Datum održavanja</h2>
-          <div className={styles.datePlace}>14-15 Jun 2021</div>
+          <div className={styles.datePlace}>
+            {firstDay.getDate()}-{lastDay.getDate()} {lastDay.getMonth() + 1}.{" "}
+            {lastDay.getFullYear()}.
+          </div>
           <p>
             <span className={styles.highlight}>CyberGames</span> je intezivna
             vikend radionica koja omogućava dizajnerima, programerima,

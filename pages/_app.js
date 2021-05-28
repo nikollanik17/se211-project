@@ -12,20 +12,64 @@ import "rc-slider/assets/index.css";
 // components
 import Navbar from "components/Layout/Navbar/Navbar";
 
+// redux
+import { Provider } from "react-redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+import teams from "../src/store/reducers/team";
+import registration from "../src/store/reducers/registration";
+import loader from "../src/store/reducers/loader";
+import notification from "../src/store/reducers/notification";
+
+import LoadingScreen from "../src/hoc/Loading/Loading";
+import { SnackbarProvider } from "notistack";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  variantSuccess: { backgroundColor: "#00A3AD !important" },
+  variantError: { backgroundColor: "#F64E60 !important" },
+}));
+
+const rootReducer = combineReducers({
+  teams,
+  registration,
+  loader,
+  notification,
+});
+
+const composeEnhancers = compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const classes = useStyles();
 
   return (
-    <>
-      {router.pathname !== "/prijava" && (
+    <Provider store={store}>
+      <LoadingScreen />
+      {router.pathname === "/" && (
         <header>
           <Navbar />
         </header>
       )}
-      <main>
-        <Component {...pageProps} />
-      </main>
-    </>
+      <SnackbarProvider
+        classes={classes}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        maxSnack={2}
+      >
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </SnackbarProvider>
+    </Provider>
   );
 }
 
