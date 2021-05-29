@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import style from "./Navbar.module.scss";
 import Logo from "../Logo/Logo";
 
 const Navbar = () => {
   const [navOpened, setNavOpened] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
   const toogleNav = () => {
     setNavOpened((prevState) => !prevState);
@@ -14,6 +15,12 @@ const Navbar = () => {
     const elem = document.getElementById(id);
     elem.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("jwtToken")) {
+      setIsAuth(true);
+    }
+  }, []);
 
   return (
     <>
@@ -51,7 +58,7 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            {localStorage.getItem("jwtToken") ? (
+            {isAuth ? (
               <Link href="/adminpanel">
                 <a>Admin panel</a>
               </Link>

@@ -2,8 +2,8 @@ import axios from "../../utility/axios";
 import { startLoading, finishLoading } from "./loader";
 
 export const login = (username, password, callback, errCallback) => {
-  dispatch(startLoading());
   return (dispatch) => {
+    dispatch(startLoading());
     axios
       .post("/auth/login", { username, password })
       .then((response) => {
