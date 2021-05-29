@@ -43,7 +43,7 @@ const Concept = ({ expiration }) => {
           </p>
           <div className={styles.criteria}>
             {conceptData.map((elem, index) => (
-              <span key={index}>{elem}</span>
+              <p key={index}>{elem}</p>
             ))}
           </div>
         </div>

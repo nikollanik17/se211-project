@@ -28,22 +28,13 @@ const HomeSlider = ({ expiration }) => {
         className={styles.sliderContainer}
       >
         <SwiperSlide>
-          <img
-            src="assets/slider4-min.jpg"
-            style={{ width: "100%", height: "100vh" }}
-          />
+          <img src="assets/slider4-min.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="assets/slider1-min.jpg"
-            style={{ width: "100%", height: "100vh" }}
-          />
+          <img src="assets/slider1-min.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img
-            src="assets/slider2-min.jpg"
-            style={{ width: "100%", height: "100vh" }}
-          />
+          <img src="assets/slider2-min.jpg" />
         </SwiperSlide>
         {/* <SwiperSlide>
         <img

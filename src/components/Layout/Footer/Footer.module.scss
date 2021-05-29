@@ -27,3 +27,12 @@
   color: #fff;
   padding-bottom: 30px;
 }
+
+@media (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    .flex {
+      margin-top: 20px;
+    }
+  }
+}

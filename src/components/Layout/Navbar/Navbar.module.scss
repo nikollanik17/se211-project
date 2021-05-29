@@ -71,7 +71,16 @@
 }
 
 @media (max-width: 1024px) {
+  .navigation {
+    padding: 0 20px;
+  }
   .navigation ul {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .navigation {
+    padding: 0;
   }
 }

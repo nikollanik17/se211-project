@@ -16,6 +16,11 @@ const Navbar = () => {
     elem.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const goToElemMobile = (id) => {
+    scrollToElem(id);
+    toogleNav();
+  };
+
   useEffect(() => {
     if (localStorage.getItem("jwtToken")) {
       setIsAuth(true);
@@ -79,34 +84,43 @@ const Navbar = () => {
       </nav>
       <div className={"nav-links" + (navOpened ? " active-links" : "")}>
         <div className="listItem">
-          <div className="imgWrapper"></div>
-          <Link className="nav-link" href="/" onClick={toogleNav}>
-            <div onClick={toogleNav}>Gde kada</div>
-          </Link>
+          <div className="nav-link" onClick={() => goToElemMobile("Concept")}>
+            <div>Gde kada</div>
+          </div>
         </div>
         <div className="listItem">
-          <div className="imgWrapper"></div>
-          <Link className="nav-link" href="/" onClick={toogleNav}>
-            <div onClick={toogleNav}>Koncept</div>
-          </Link>
+          <div className="nav-link" onClick={() => goToElemMobile("Concept")}>
+            <div>Koncept</div>
+          </div>
         </div>
         <div className="listItem">
-          <div className="imgWrapper"></div>
-          <Link className="nav-link" href="/" onClick={toogleNav}>
-            <div onClick={toogleNav}>Nagrada</div>
-          </Link>
+          <div className="nav-link" onClick={() => goToElemMobile("Award")}>
+            <div>Nagrada</div>
+          </div>
         </div>
         <div className="listItem">
-          <div className="imgWrapper"></div>
-          <Link className="nav-link" href="/" onClick={toogleNav}>
-            <div onClick={toogleNav}>Agenda</div>
-          </Link>
+          <div className="nav-link" onClick={() => goToElemMobile("Agenda")}>
+            <div>Agenda</div>
+          </div>
         </div>
         <div className="listItem">
-          <div className="imgWrapper"></div>
-          <Link className="nav-link" href="/" onClick={toogleNav}>
-            <div onClick={toogleNav}>Prijava</div>
-          </Link>
+          <div
+            className="nav-link"
+            onClick={() => goToElemMobile("Commission")}
+          >
+            <div>Komisija</div>
+          </div>
+        </div>
+        <div className="listItem">
+          {isAuth ? (
+            <Link className="nav-link" href="/adminpanel">
+              <div>Admin panel</div>
+            </Link>
+          ) : (
+            <Link className="nav-link" href="/prijava">
+              <div>Prijava</div>
+            </Link>
+          )}
         </div>
       </div>
     </>
