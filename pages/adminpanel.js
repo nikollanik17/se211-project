@@ -137,7 +137,7 @@ const AdminPanel = () => {
   };
   const sizeField = {
     field: "size",
-    title: "Broj članova",
+    title: "Broj clanova",
     cellStyle: { width: 150, maxWidth: 150 },
     headerStyle: { width: 150, maxWidth: 150 },
   };
@@ -186,7 +186,7 @@ const AdminPanel = () => {
         <h1 style={{ marginBottom: 20, marginTop: 20 }}>Prijavljeni timovi</h1>
         <MaterialTable
           icons={tableIcons}
-          title="Timovi"
+          title="Prijavljeni timovi za 2021. godinu"
           options={{ pageSize: 10, pageSizeOptions: [10, 20, 50] }}
           data={teams ? teams : []}
           columns={[nameField, sizeField, leaderField, contactField]}
@@ -219,6 +219,7 @@ const AdminPanel = () => {
           color="secondary"
           startIcon={<ExitToAppOutlined />}
           onClick={logoutHandler}
+          style={{ marginBottom: 30 }}
         >
           Odjavi se
         </Button>

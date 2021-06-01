@@ -61,7 +61,7 @@ const Prijava = () => {
   };
 
   function phoneNumberValidator(inputtxt) {
-    var phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+    var phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3,6}$/im;
     if (inputtxt.match(phoneno)) {
       return true;
     } else {
@@ -119,26 +119,26 @@ const Prijava = () => {
             ) : (
               <form onSubmit={onSubmit}>
                 <Input
-                  placeholder="Ime tima"
+                  placeholder="Ime tima*"
                   required
                   value={teamName}
                   onChange={(val) => setTeamName(val)}
                 />
                 <Input
-                  placeholder="Broj clanova"
+                  placeholder="Broj clanova*"
                   required
                   type="number"
                   value={teamSize}
                   onChange={(val) => setTeamSize(val)}
                 />
                 <Input
-                  placeholder="Ime kapitena"
+                  placeholder="Ime kapitena*"
                   required
                   value={teamLeader}
                   onChange={(val) => setTeamLeader(val)}
                 />
                 <Input
-                  placeholder="Broj telefona"
+                  placeholder="Broj telefona*"
                   type="tel"
                   // pattern="+[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   required
